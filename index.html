@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Start Screen</title>
+</head>
+<body style="
+    color: white;
+    text-align: center;
+    ">
+    <header>
+        <h1>So, you want to win the greatest prize....</h1>
+    </header><br>
+
+    <section class="start-box">
+        <p>If you want to try and win my prize, you will need to prove yourself 
+            <br>through a handful of puzzles and tests run by the prize guards
+        </p>
+        <p>Click below to start your quest to the prize</p>
+
+        <button id="startMath">Let The Games Begin</button>
+    </section><br>
+
+    <footer>
+        <h5>Created By: Nick Pleva</h5>
+        <a href="https://nick-pleva.github.io/Profile-Website/" target="_blank" style="color: lightblue !important;">My Website</a>
+    </footer>
+    
+
+    <script>
+        // Initialize gameData if missing
+        let gameData = JSON.parse(localStorage.getItem("gameData"));
+
+        if (!gameData) {
+            gameData = {
+                gameMaster: { score: 0 },
+                players: {
+                    player1: { score: 0 }
+                }
+            };
+
+            localStorage.setItem("gameData", JSON.stringify(gameData));
+        }
+
+        // Button sends user to the math game page
+        document.getElementById("startMath").addEventListener("click", () => {
+            window.location.href = "math-quiz.html";
+        });
+    </script>
+
+</body>
+</html>
